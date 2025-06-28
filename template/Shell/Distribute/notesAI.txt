@@ -1,0 +1,35 @@
+There will a folder called `distribute`. In `distribute` there will be many files. The files extension can be anything. So we will refer to all the files in the `distribute` folder as `distributeFiles`.
+
+For example one of the `distributeFiles` can be called `details-form.txt` and another one can be called `actions.js`.
+
+The `details-form.txt`  file content might look like this 
+```jsx
+// src/app/resume/create/style.js
+import styled from "styled-components";
+const CreatorContainer = styled.div`
+  max-width: 900px;
+  margin: 0 auto;
+  padding: ${({ theme }) => theme.spacing[8]};
+`;
+```
+The `myfun.js`  file content might look like this 
+```js
+// src/app/resume/create/actions.js
+export default function logData(data) {
+  console.log(data);
+  return data;
+}
+```
+In the `Shell/Distribute/distribute.sh` I need the function `distribute` function to move the files using the directory in the `distributeFiles` file from `distribute` folder. Then echo the directory where the files are moved. If the directory does not exist, create it. If the directory exists, have the user confirm before overwriting the files. And if the user confirms, then move the original file to the new directory called `Backup`. In the `Backup` also create another folder called `1` and move the original file to the `1` folder. If the folder `1` exists, then create another folder called `2` and move the original file to the `2` folder. Increase the number by 1 for each folder.
+
+The `distribute` function will be executed using this command.
+```sh
+npm run distribute
+```
+After the command `npm run distribute` executed, the all the original files should be moved to the directory `Backup/1`.
+
+Then when the user runs the command `npm run distribute` again, the original files should be moved to the directory `Backup/2`.
+
+Going back to the examples, `details-form.txt` would be moved to `src/app/resume/create/style.js` and `myfun.js` would be moved to `src/app/resume/create/actions.js`. If the directory does not exist, create it. If the directory exists and the user confirms to overwrite the file then move the original file to the new directory called `Backup/1/actions.js`.
+
+The `distribute` function should be executed for each file in the `distribute` folder.
