@@ -1,6 +1,6 @@
 // Default styling for AI Assistant Project. Modify as needed.
 
-export const theme = {
+const theme = {
   colors: {
     primary: "#0070f3",
     secondary: "#1a1a1a",
@@ -21,3 +21,5 @@ export const theme = {
   },
   borderRadius: "8px",
 };
+
+export default theme;
